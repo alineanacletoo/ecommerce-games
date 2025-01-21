@@ -5,10 +5,10 @@ import {
   ValidationOptions,
 } from 'class-validator';
 
-export function IsAdult(validationOptions?: ValidationOptions) {
+export function ValidacaoIdade(validationOptions?: ValidationOptions) {
   return function (object: object, propertyName: string) {
     registerDecorator({
-      name: 'validacao',
+      name: 'validacaoIdade',
       target: object.constructor,
       propertyName: propertyName,
       options: validationOptions,
@@ -19,7 +19,7 @@ export function IsAdult(validationOptions?: ValidationOptions) {
           return age >= 18;
         },
         defaultMessage(args: ValidationArguments) {
-          return `${args.property} must indicate an age of at least 18 years.`;
+          return `${args.property} deve indicar uma idade mínima de 18 anos.`;
         },
       },
     });
